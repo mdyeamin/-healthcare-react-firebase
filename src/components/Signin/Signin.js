@@ -4,7 +4,7 @@ import useFirebase from '../../Hooks/useFirebase';
 import './Signin.css'
 
 const Signin = () => {
-    const { signInUsingGoogle, handleEmailChange, handlePasswordChange, handleFormcontrol, error, toggolLogin, isLogin } = useFirebase()
+    const { signInUsingGoogle, handleEmailChange, handlePasswordChange, handleFormcontrol, error, toggolLogin, isLogin, handleNameChange } = useFirebase()
 
     return (
         <>
@@ -18,7 +18,7 @@ const Signin = () => {
                                 {!isLogin && <div className="user-name">
                                     <div className="input-group mb-3">
                                         <span className="input-group-text" id="basic-addon1"><i className="fas fa-user"></i></span>
-                                        <input type="text" className="form-control" placeholder="Username" />
+                                        <input onBlur={handleNameChange} type="text" className="form-control" placeholder="Username" />
                                     </div>
                                 </div>}
                                 <div className="email-pass d-flex">
@@ -32,8 +32,8 @@ const Signin = () => {
                                     </div>
                                 </div>
                                 <div >
-                                    <input onChange={toggolLogin} class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <input onChange={toggolLogin} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Already rejistered?
                                     </label>
                                 </div>
