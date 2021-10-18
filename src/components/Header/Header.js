@@ -22,7 +22,7 @@ const Header = () => {
                         <Nav className="nav-link">
 
                             <NavLink to="/home">Home</NavLink>
-                            <NavLink to="/service">Service</NavLink>
+                            <NavLink to="/services">Service</NavLink>
                             <NavLink to="/">Home</NavLink>
                             <NavLink to="/">Home</NavLink>
                             <NavLink to="/">Home</NavLink>
@@ -48,7 +48,7 @@ const Header = () => {
                             </NavLink>}
                     </div>
                     <div className="user-logo">
-                        <p>{user?.displayName}</p>
+                        <span>{user?.displayName}</span>
                         <img src={user?.photoURL} alt="" />
                     </div>
                 </Container>

@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const HomeService = (props) => {
-    const { name, photo, dec } = props.health;
+    const { no, name, photo, dec } = props.health;
     return (
         <>
 
@@ -11,7 +12,7 @@ const HomeService = (props) => {
                     <h3>{name}</h3>
 
                     <p className="card-text">{dec}</p>
-                    <button>Detail</button>
+                    <NavLink to={`/service/${no}`}> <button>Detail</button></NavLink>
                 </div>
             </div>
 

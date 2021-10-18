@@ -1,8 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Service = (props) => {
-    // console.log(props);
-    const { name, photo, dec } = props.service
+    
+    const { no, name, photo, dec } = props.service
     return (
         <>
             <div className="card" style={{ width: "18rem" }}>
@@ -11,7 +12,7 @@ const Service = (props) => {
                     <h3>{name}</h3>
 
                     <p className="card-text">{dec}</p>
-                    <button>Detail</button>
+                    <NavLink to={`/service/${no}`}> <button>Detail</button></NavLink>
                 </div>
             </div>
         </>

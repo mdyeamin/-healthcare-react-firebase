@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import ServiceDetail from './components/ServiceDetail/ServiceDetail';
 
 import Services from './components/Services/Services';
 import Signin from './components/Signin/Signin';
@@ -22,8 +23,13 @@ function App() {
           <Route path="/signin">
             <Signin></Signin>
           </Route>
-          <Route>
+          <Route path="/services">
             <Services></Services>
+          </Route>
+          <Route path="/service/:serviceId">
+            <ServiceDetail>
+
+            </ServiceDetail>
           </Route>
         </Switch>
       </Router>

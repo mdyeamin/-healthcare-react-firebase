@@ -78,6 +78,8 @@ color:#fff;
 
 .user-logo{
     display: flex;
+    align-items: center;
+    justify-content: center;
    
 }
 .user-logo img{
