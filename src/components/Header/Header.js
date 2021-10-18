@@ -48,8 +48,8 @@ const Header = () => {
                             </NavLink>}
                     </div>
                     <div className="user-logo">
-                        <p>{user.displayName}</p>
-                        <img src={user.photoURL} alt="" />
+                        <p>{user?.displayName}</p>
+                        <img src={user?.photoURL} alt="" />
                     </div>
                 </Container>
             </Navbar>
