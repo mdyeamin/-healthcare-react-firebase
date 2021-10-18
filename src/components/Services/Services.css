@@ -1,0 +1,30 @@
+.service-data-area{
+
+    margin-top: 100px;
+}
+.service-data{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    margin-top: 20px;
+}
+.more-btn{
+    text-decoration: none;
+background-color: #669cbc;
+padding: 5px 12px;
+border-left:2px solid #fff;
+color: #fff;
+transition : 1s;
+margin-top: 20px;
+
+}
+
+
+
+
+@media only screen and (max-width: 668px){ 
+    .service-data{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}
