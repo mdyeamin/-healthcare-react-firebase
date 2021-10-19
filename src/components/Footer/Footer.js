@@ -56,7 +56,7 @@ const Footer = () => {
 
             </Row >
             <hr />
-            <p className="text-center default-color">&#169; Code Education 2021</p>
+            <p className="text-center default-color">&#169; Health <img src={logo} style={{ width: '1.4em' }} alt="" /> Sense 2021</p>
         </div>
     );
 };
