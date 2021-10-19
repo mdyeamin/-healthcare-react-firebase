@@ -11,7 +11,9 @@ const Header = () => {
         <>
             <Navbar className="nav" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home"><h2>Health <img style={{ width: '1.4em' }} src={logo} alt="" /> Sense</h2></Navbar.Brand>
+                    <NavLink style={{ textDecoration: "none" }} to="/home">
+                        <Navbar.Brand ><h2>Health <img style={{ width: '1.4em' }} src={logo} alt="" /> Sense</h2></Navbar.Brand>
+                    </NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -23,10 +25,8 @@ const Header = () => {
 
                             <NavLink to="/home">Home</NavLink>
                             <NavLink to="/services">Service</NavLink>
-                            <NavLink to="/">Home</NavLink>
-                            <NavLink to="/">Home</NavLink>
-                            <NavLink to="/">Home</NavLink>
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="/">About</NavLink>
+
                             {/* <Nav.Link href="#deets">More deets</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 Dank memes

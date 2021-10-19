@@ -18,7 +18,7 @@ const ServiceDetail = () => {
             <Row>
                 <Col md={4}> </Col>
                 <Col md={4}>
-                    <div className="card mb-3">
+                    <div className="card mb-3 mt-5">
                         <img src={item?.photo} className="card-img-top img-fluid" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">{item?.name}</h5>

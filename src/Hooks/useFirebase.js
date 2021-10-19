@@ -4,15 +4,20 @@ import initializeAuthentication from "../Firebase/firebase.init";
 initializeAuthentication()
 const useFirebase = () => {
     const auth = getAuth()
-    const googleProvider = new GoogleAuthProvider()
-    const [name, setName] = useState('')
-    const [user, setUser] = useState({})
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const [isLogin, setIsLogin] = useState(false)
+    const googleProvider = new GoogleAuthProvider();
+    const [name, setName] = useState('');
+    const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [isLogin, setIsLogin] = useState(false);
+
+
     const signInUsingGoogle = () => {
-        return signInWithPopup(auth, googleProvider);
+        setIsLoading(true);
+        return signInWithPopup(auth, googleProvider)
+            .finally(() => setIsLoading(false))
     }
 
     const handleNameChange = e => {
@@ -29,7 +34,6 @@ const useFirebase = () => {
 
     const handleFormcontrol = e => {
         e.preventDefault()
-        console.log(email, password);
         if (password.length < 6) {
             setError('password must be 6 charactar long')
             return;
@@ -49,7 +53,7 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user
-                console.log(user);
+
                 setUser(user)
                 setError('')
                 setUserName()
@@ -67,8 +71,8 @@ const useFirebase = () => {
     const createNewUser = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const user = result.user
-                console.log(user);
+                // const user = result.user
+                // console.log(user);
                 setUser(result.user)
                 setError('')
             })
@@ -82,10 +86,12 @@ const useFirebase = () => {
 
 
     const logOut = () => {
+        setIsLoading(true)
         signOut(auth)
             .then(() => {
                 setUser({})
             })
+            .finally(() => setIsLoading(false))
     }
     const toggolLogin = e => {
         setIsLogin(e.target.checked);
@@ -96,6 +102,10 @@ const useFirebase = () => {
             if (user) {
                 setUser(user)
             }
+            else {
+                setUser({})
+            }
+            setIsLoading(false)
         })
         return unsubscribe;
     }, [])
@@ -112,7 +122,8 @@ const useFirebase = () => {
         handleFormcontrol,
         error,
         toggolLogin,
-        isLogin
+        isLogin,
+        isLoading
     }
 
 

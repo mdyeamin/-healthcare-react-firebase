@@ -7,13 +7,13 @@ import doctor3 from '../../img/doctor3.jpg'
 import HomeService from '../HomeService/HomeService';
 import { NavLink } from 'react-router-dom';
 import medical from '../../img/medical.jpg'
-import hart from '../../img/hart.png'
+import hart from '../../img/hart.jpg'
 const Home = () => {
     const [healthInfo, setHealthInfo] = useState([])
     useEffect(() => {
         fetch('./data.json')
             .then(res => res.json())
-            .then(data => setHealthInfo(data.slice(0, 4)))
+            .then(data => setHealthInfo(data.slice(0, 6)))
     }, [])
     return (
         <>

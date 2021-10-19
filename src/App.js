@@ -4,6 +4,7 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import ServiceDetail from './components/ServiceDetail/ServiceDetail';
 
@@ -16,27 +17,38 @@ function App() {
     <div className="">
       <AuthProvider>
         <Router>
-          <Header></Header>
+
           <Switch>
             <Route exact path="/">
+              <Header></Header>
               <Home></Home>
+              <Footer></Footer>
             </Route>
             <Route path="/home">
+              <Header></Header>
               <Home></Home>
+              <Footer></Footer>
             </Route>
             <Route path="/signin">
+              <Header></Header>
               <Signin></Signin>
+              <Footer></Footer>
             </Route>
             <Route path="/services">
+              <Header></Header>
               <Services></Services>
+              <Footer></Footer>
             </Route>
             <PrivateRoute path="/service/:serviceId">
-              <ServiceDetail>
-
-              </ServiceDetail>
+              <Header></Header>
+              <ServiceDetail> </ServiceDetail>
+              <Footer></Footer>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
-          <Footer></Footer>
+
         </Router>
       </AuthProvider>
     </div>
