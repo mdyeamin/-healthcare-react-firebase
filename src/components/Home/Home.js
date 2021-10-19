@@ -8,6 +8,11 @@ import HomeService from '../HomeService/HomeService';
 import { NavLink } from 'react-router-dom';
 import medical from '../../img/medical.jpg'
 import hart from '../../img/hart.jpg'
+// 
+import oparetion1 from '../../img/oparetion1.jpg'
+import oparetion2 from '../../img/oparetion2.jpg'
+import oparetion3 from '../../img/oparetion3.jpg'
+import oparetion4 from '../../img/oparetion4.jpg'
 const Home = () => {
     const [healthInfo, setHealthInfo] = useState([])
     useEffect(() => {
@@ -92,7 +97,27 @@ const Home = () => {
             <div className="ambulance-serrvice-area my-5">
 
             </div>
-
+            <div className="operation-theater">
+                <h1 className="text-center my-5">Operation Theater</h1>
+                <Row>
+                    <Col md={3}>
+                        <img className="img-fluid" src={oparetion1} alt="" />
+                        <h5>Brooklyn single speciality medical practices and ambulatory surgry center</h5>
+                    </Col>
+                    <Col md={3}>
+                        <img className="img-fluid" src={oparetion2} alt="" />
+                        <h5>Brooklyn single speciality medical practices and ambulatory surgry center</h5>
+                    </Col>
+                    <Col md={3}>
+                        <img className="img-fluid" src={oparetion3} alt="" />
+                        <h5>Brooklyn single speciality medical practices and ambulatory surgry center</h5>
+                    </Col>
+                    <Col md={3}>
+                        <img className="img-fluid" src={oparetion4} alt="" />
+                        <h5>Brooklyn single speciality medical practices and ambulatory surgry center</h5>
+                    </Col>
+                </Row>
+            </div>
         </>
     );
 };

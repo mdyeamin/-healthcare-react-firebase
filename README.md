@@ -1,8 +1,8 @@
 # Health  Sense
 
-This project was bootstrapped with [Health  Sense](https://health-sense-d3b2a.web.app/).
+This is a hospital's website [Health  Sense](https://health-sense-d3b2a.web.app/).
 
-## Available Scripts
+## Health  Sense info
 * this is health care website
 * This website is a complete medical related website and receive your services through this website
 * This website provides quality services about health
@@ -14,7 +14,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+This is a hospital's website code link
 Open [Code Link](https://github.com/Programming-Hero-Web-Course3/healthcare-related-website-mdyeamin) to view it in the browser.
 
 The page will reload if you make edits.\
