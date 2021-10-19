@@ -1,9 +1,16 @@
 .from{
     box-shadow: 5px 10px 18px #888888;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20%;
+    border-radius: 2%;
 }
 
 .signin-with{
-    margin-top: 50px;
-    box-shadow: 5px 10px 18px #888888;
-    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 30px 0 ;
 }

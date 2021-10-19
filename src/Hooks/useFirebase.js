@@ -12,12 +12,7 @@ const useFirebase = () => {
     const [error, setError] = useState('')
     const [isLogin, setIsLogin] = useState(false)
     const signInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user)
-                const user = result.user
-                console.log(user);
-            })
+        return signInWithPopup(auth, googleProvider);
     }
 
     const handleNameChange = e => {
@@ -97,11 +92,12 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        onAuthStateChanged(auth, user => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user)
             }
         })
+        return unsubscribe;
     }, [])
     return {
         name,

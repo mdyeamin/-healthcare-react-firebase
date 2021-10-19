@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Col, Row } from 'react-bootstrap';
 import './Home.css'
 import doctor1 from '../../img/doctor1.jpg'
 import doctor2 from '../../img/doctor2.jpg'
 import doctor3 from '../../img/doctor3.jpg'
 import HomeService from '../HomeService/HomeService';
 import { NavLink } from 'react-router-dom';
+import medical from '../../img/medical.jpg'
+import hart from '../../img/hart.png'
 const Home = () => {
     const [healthInfo, setHealthInfo] = useState([])
     useEffect(() => {
@@ -54,8 +56,10 @@ const Home = () => {
             </Carousel>
 
             <div className="home-data-area">
-                <h2>OUR SERVICES</h2>
-                <p>Our doctors are specialized in their field and have more than 10 years of experiences.</p>
+                <div className="text-center mb-5">
+                    <h2>OUR SERVICES</h2>
+                    <p>Our doctors are specialized in their field and have more than 10 years of experiences.</p>
+                </div>
                 <div className="home-data">
                     {
                         healthInfo.map(health => <HomeService
@@ -64,8 +68,29 @@ const Home = () => {
                         ></HomeService>)
                     }
                 </div>
-                <NavLink to="/service"><button className="more-btn btn">More <i className="fas fa-arrow-right"></i></button></NavLink>
             </div>
+            <div className="more">
+                <NavLink to="/services"><button className=" more-bt btn  text-center">More <i className="fas fa-arrow-right"></i></button></NavLink>
+            </div>
+
+            <div className="medical-area m-5">
+                <Row>
+                    <Col md={6}>
+                        <p className="m">OUR MEDICAL</p>
+                        <h2 className="medical-heade">We're setting Standards in Research what's more, Clinical Care.</h2>
+                        <img style={{ width: '60px' }} src={hart} alt="" />
+                        <p>We provide the most full medical services, so every person could have the pportunity o receive qualitative medical help.</p>
+                        <br />
+                        <p>Our Clinic has grown to provide a world class facility for the treatment of tooth loss, dental cosmetics and bore advanced restorative dentistry. We are among the most qualified implant providers in the AUS with over 30 years of uality training and experience.</p>
+                    </Col>
+                    <Col md={6}>
+                        <img className="img-fluid" style={{ width: '100%' }} src={medical} alt="" />
+                    </Col>
+                </Row>
+            </div>
+
+
+
         </>
     );
 };

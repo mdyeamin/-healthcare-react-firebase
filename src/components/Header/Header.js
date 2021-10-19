@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
+import useAuth from '../../Hooks/useAuth';
 import logo from '../../img/health.ico'
 import './Header.css'
 
 const Header = () => {
-    const { user, logOut } = useFirebase()
+    const { user, logOut } = useAuth()
     return (
         <>
             <Navbar className="nav" collapseOnSelect expand="lg" bg="light" variant="light">
@@ -34,27 +34,66 @@ const Header = () => {
 
                         </Nav>
                     </Navbar.Collapse>
-                    <div>
-                        {!user.email ? <div>
-                            <NavLink to="/signin">
-                                <button className="btn btn-sm me-2 login">Login</button>
-                            </NavLink>
-                            <NavLink to="/signin">
-                                <button className="btn signin btn-sm">SignIn</button>
-                            </NavLink>
-                        </div> :
-                            <NavLink to="/">
-                                <button onClick={logOut} className="btn logout btn-sm">Logout</button>
-                            </NavLink>}
-                    </div>
                     <div className="user-logo">
                         <span>{user?.displayName}</span>
                         <img src={user?.photoURL} alt="" />
                     </div>
+
+
                 </Container>
+                <div className="me-5">
+                    {!user.email ? <div>
+                        <NavLink to="/signin">
+                            <button className="btn btn-sm me-2 login">Login</button>
+                        </NavLink>
+                        {/* <NavLink to="/signin">
+                            <button className="btn signin btn-sm">Register</button>
+                        </NavLink> */}
+                    </div> :
+                        <NavLink to="/">
+                            <button onClick={logOut} className="btn logout btn-sm">Logout</button>
+                        </NavLink>}
+                </div>
             </Navbar>
         </>
     );
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

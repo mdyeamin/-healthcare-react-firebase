@@ -1,19 +1,34 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import useFirebase from '../../Hooks/useFirebase';
+import { useHistory, useLocation } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
 import './Signin.css'
 
 const Signin = () => {
-    const { signInUsingGoogle, handleEmailChange, handlePasswordChange, handleFormcontrol, error, toggolLogin, isLogin, handleNameChange } = useFirebase()
+    const { signInUsingGoogle, handleEmailChange, handlePasswordChange, handleFormcontrol, error, toggolLogin, isLogin, handleNameChange } = useAuth()
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home'
+    console.log('came form', location.state?.from);
+
+
+    const redirectGoogleLoginCurrentLocation = () => {
+        signInUsingGoogle()
+            .then(result => {
+                history.push(redirect_uri)
+            })
+    }
+
 
     return (
         <>
             <form onSubmit={handleFormcontrol}>
                 <Row>
                     <Col md={4}></Col>
-                    <Col md={4} >
+                    <Col md={4} className="form-style">
                         <div className=" from">
-                            <h2>Pleace {isLogin ? 'Login' : 'Register'}</h2>
+                            <h2 className="my-3">Pleace {isLogin ? 'Login' : 'Register'}</h2>
                             <div>
                                 {!isLogin && <div className="user-name">
                                     <div className="input-group mb-3">
@@ -34,27 +49,30 @@ const Signin = () => {
                                 <div >
                                     <input onChange={toggolLogin} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        Already rejistered?
+                                        Already registered?
                                     </label>
                                 </div>
                                 <p className="text-danger text-center"> <small>{error}</small></p>
                             </div>
                             <button className="btn btn-dark">{isLogin ? 'LogIn' : 'Register'}</button>
+                            <div className="signin-with">
+                                <h4>Sign in with</h4>
+                                <button className="btn btn-primary" onClick={redirectGoogleLoginCurrentLocation}><i className="fab fa-google"></i> Google</button>
+                            </div>
                         </div>
                     </Col>
                     <Col md={4}></Col>
                 </Row>
             </form>
-            <Row className="mx-auto text-center">
+            {/* <Row className="mx-auto text-center">
                 <Col md={5}> </Col>
                 <Col md={2}>
                     <div className="signin-with">
-                        <h4>Sign in with</h4>
-                        <button className="btn btn-primary" onClick={signInUsingGoogle}><i className="fab fa-google"></i> Google</button>
+
                     </div>
                 </Col>
                 <Col md={5}></Col>
-            </Row>
+            </Row> */}
         </>
     );
 };

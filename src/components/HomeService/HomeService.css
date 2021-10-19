@@ -1,0 +1,19 @@
+.detail-btn{
+    text-decoration: none;
+    background-color: #669cbc;
+    padding: 5px 12px;
+    border-left:2px solid #fff;
+    color: #fff;
+    transition : 1s;
+    margin-top: 20px;
+border: 0;
+padding: 8px 32px;
+border-radius: 5px;
+margin-bottom: 30px;
+}
+
+
+.detail-btn:hover .i{
+    transition: transform 350ms;
+    transform: translateX(10px);
+}
