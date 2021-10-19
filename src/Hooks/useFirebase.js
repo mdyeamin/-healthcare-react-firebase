@@ -18,6 +18,7 @@ const useFirebase = () => {
         setIsLoading(true);
         return signInWithPopup(auth, googleProvider)
             .finally(() => setIsLoading(false))
+
     }
 
     const handleNameChange = e => {
@@ -34,6 +35,10 @@ const useFirebase = () => {
 
     const handleFormcontrol = e => {
         e.preventDefault()
+        if (password === "" && email === "" && password === "") {
+            setError('your form empty')
+            return;
+        }
         if (password.length < 6) {
             setError('password must be 6 charactar long')
             return;
@@ -46,6 +51,7 @@ const useFirebase = () => {
             setError('The password will contain a minimum of one special symbols (!@#$&*)')
             return;
         }
+
         isLogin ? processLogin(email, password) : createNewUser(email, password)
     }
 
@@ -53,7 +59,6 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user
-
                 setUser(user)
                 setError('')
                 setUserName()
@@ -66,6 +71,10 @@ const useFirebase = () => {
     const setUserName = () => {
         updateProfile(auth.currentUser, { displayName: name })
             .then(result => { })
+            .catch(error => {
+                setError(error.message)
+            })
+        setError(error.message) //outOf
     }
 
     const createNewUser = () => {
