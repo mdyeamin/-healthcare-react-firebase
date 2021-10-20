@@ -2,10 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
+import Booking from './components/Booking/Booking';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+import Privacy from './components/Privacy/Privacy';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import ServiceDetail from './components/ServiceDetail/ServiceDetail';
 
@@ -48,6 +50,16 @@ function App() {
             <PrivateRoute path="/service/:serviceId">
               <Header></Header>
               <ServiceDetail> </ServiceDetail>
+              <Footer></Footer>
+            </PrivateRoute>
+            <PrivateRoute path="/booking">
+              <Header></Header>
+              <Booking> </Booking>
+              <Footer></Footer>
+            </PrivateRoute>
+            <PrivateRoute path="/privacy">
+              <Header></Header>
+              <Privacy></Privacy>
               <Footer></Footer>
             </PrivateRoute>
             <Route path="*">

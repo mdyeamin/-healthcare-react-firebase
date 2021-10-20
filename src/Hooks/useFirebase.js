@@ -60,8 +60,8 @@ const useFirebase = () => {
             .then(result => {
                 const user = result.user
                 setUser(user)
-                setError('')
                 setUserName()
+                setError('')
             })
             .catch(error => {
                 setError(error.message)
@@ -74,15 +74,14 @@ const useFirebase = () => {
             .catch(error => {
                 setError(error.message)
             })
-        setError(error.message) //outOf
+        // setError(error.message) //outOf
     }
 
     const createNewUser = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                // const user = result.user
-                // console.log(user);
                 setUser(result.user)
+                setUserName()
                 setError('')
             })
             .catch(error => {

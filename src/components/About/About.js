@@ -6,25 +6,25 @@ import about2 from '../../img/about2.jpg'
 import about3 from '../../img/about3.jpg'
 const About = () => {
     return (
-        <div className="my-5">
+        <div className="my-5 container">
             <h1 className="mb-3">Latest Blog Posts</h1>
 
-            <Row>
-                <Col className="about-cart">
+            <Row >
+                <Col className="about-cart" md={4}>
                     <img src={about1} alt="" />
                     <h4>Reasons to Visit a Breast Specialist</h4>
                     <span>June 21, 2021 at 8:12pm News</span>
 
                     <p>There are a lot of women that are unaware of the numerous risks associated with their health and eventually ignore the importance of visiting...</p>
                 </Col>
-                <Col className="about-cart">
+                <Col className="about-cart" md={4}>
                     <img src={about2} alt="" />
                     <h4>Picking the Right Diagnostic Services for Efficient Results</h4>
                     <span>June 21, 2021 at 8:12pm News</span>
 
                     <p>There have been a lot of cases in which people were not provided with accurate reports that eventually affected their medical treatment. There is always...</p>
                 </Col>
-                <Col className="about-cart">
+                <Col className="about-cart" md={4}>
                     <img src={about3} alt="" />
                     <h4>Preparing for an ECG in 8 Easy Steps: Tips From Our Diagnosticians</h4>
                     <span>June 21, 2021 at 8:12pm News</span>

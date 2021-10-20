@@ -18,13 +18,22 @@ transition : 1s;
 margin-top: 20px;
 
 }
-
-
-
+.baby-area{
+    margin: 50px;
+}
+.baby-area >h2{
+    margin: 30px 20px;
+}
+.baby-txt{
+    line-height: 1.4;
+    font-weight: 400;
+}
 
 @media only screen and (max-width: 668px){ 
     .service-data{
         grid-template-columns: repeat(1,1fr);
     }
-    
+    .baby-img{
+        margin-bottom: 50px;
+    }
 }
